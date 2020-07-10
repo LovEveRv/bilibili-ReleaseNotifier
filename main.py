@@ -7,7 +7,7 @@ from emailsender import MailSender
 
 agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15'
 header = {
-    'User-Agent': agent,
+	'User-Agent': agent,
 }
 
 url = 'https://www.bilibili.com/bangumi/media/md28228734/'
@@ -28,7 +28,7 @@ while True:
 
 			ms = MailSender(mail_obj['sender'], mail_obj['pwd'])
 			title = 'B站《天气之子》更新啦'
-			content = '发布时间已经不再是“敬请期待了”，详情请到 https://www.bilibili.com/bangumi/media/md28228734/ 查询。'
+			content = '发布时间已经不再是“敬请期待”了，详情请到 https://www.bilibili.com/bangumi/media/md28228734/ 查询。'
 			ms.send(receivers, title, content)
 			
 			break
