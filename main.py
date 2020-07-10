@@ -15,12 +15,12 @@ request_interval = 1800  # half an hour
 
 while True:
 	response = requests.get(url, headers=header)
-	text = response.text
-	match_obj = re.search(r'<div class="media-info-time"><span>(.*?)</span>', text)
+	match_obj = re.search(r'<div class="media-info-time"><span>(.*?)</span>', response.text)
 	if match_obj:
 		release_time = match_obj.group(1)
-		print(release_time)
-		if not release_time == '敬请期待':
+		text = '[{}] {}'.format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), release_time)
+		print(text)
+		if release_time != '敬请期待':
 			with open('mail.json', 'r', encoding='utf-8') as mf:
 				mail_obj = json.load(mf)
 			with open('receivers.json', 'r', encoding='utf-8') as rf:
