@@ -1,4 +1,5 @@
 from emailsender import MailSender
+import json
 
 with open('mail.json', 'r', encoding='utf-8') as mf:
 	mail_obj = json.load(mf)
